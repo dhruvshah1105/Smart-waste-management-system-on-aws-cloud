@@ -1,21 +1,3 @@
-/*Developed by M V Subrahmanyam - https://www.linkedin.com/in/veera-subrahmanyam-mediboina-b63997145/
-Project: AWS | NodeMCU ESP8266 Tutorials
-Electronics Innovation - www.electronicsinnovation.com
-
-GitHub - https://github.com/VeeruSubbuAmi
-YouTube - http://bit.ly/Electronics_Innovation
-
-Upload date: 07 October 2019
-
-AWS Iot Core
-
-This example needs https://github.com/esp8266/arduino-esp8266fs-plugin
-
-It connects to AWS IoT server then:
-- publishes "hello world" to the topic "outTopic" every two seconds
-- subscribes to the topic "inTopic", printing out any messages
-*/
-
 #include "FS.h"
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h> //https://www.arduinolibraries.info/libraries/pub-sub-client
@@ -24,23 +6,22 @@ It connects to AWS IoT server then:
 
 // Update these with values suitable for your network.
 
-const char* ssid = "ISHAVASHYAM";
-const char* password = "babudi1707";
+const char* ssid = "Your Wi-Fi name";
+const char* password = "Your Wi-Fi Password";
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
-const char* AWS_endpoint = "a2zsnltg3hwsk2-ats.iot.us-east-1.amazonaws.com"; //MQTT broker ip
+const char* AWS_endpoint = "Your AWS Endpoint"; //MQTT broker ip
 
 void callback(char* topic, byte* payload, unsigned int length) {
-Serial.print("Message arrived [");
-Serial.print(topic);
-Serial.print("] ");
-for (int i = 0; i < length; i++) {
-Serial.print((char)payload[i]);
-}
-Serial.println();
-
+  Serial.print("Message arrived [");
+  Serial.print(topic);
+  Serial.print("] ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
 }
 WiFiClientSecure espClient;
 PubSubClient client(AWS_endpoint, 8883, callback, espClient); //set MQTT port number to 8883 as per //standard
