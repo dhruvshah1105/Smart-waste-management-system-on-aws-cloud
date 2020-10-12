@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>SGP</h1>
+<script>
+function myFunction() {
+  console.log("hello");
+  var apiUrl = 'https://poumy7jw4l.execute-api.us-east-1.amazonaws.com/v1/get-data';
+  console.log(apiUrl);
+    fetch(apiUrl).then(response => {
+      console.log(response);
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      var para=document.createElement("p");
+      var node=document.createTextNode(data[0]);
+      para.appendChild(node);
+      var el=document.getElementById("div1");
+      el.appendChild(para);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+</script>
+
+<div id="div1">
+</div> 
+  <button onclick="myFunction()">Button</button>
+</body>
+</html>
