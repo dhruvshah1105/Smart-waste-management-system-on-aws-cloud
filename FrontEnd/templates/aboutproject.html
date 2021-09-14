@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>About</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body style="position: absolute; top: 0; left: 0;">
+
+<input type="checkbox" id="check">
+  <!--header area start-->
+<header>
+    <label for="check">
+      <i class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+</header>
+  <!--header area end-->
+  <!--sidebar start-->
+<div class="sidebar">
+    <center>
+      <img src="{{url_for('static', filename='logo.png')}}" class="profile_image" alt="">
+      <h4>Admin</h4>
+    </center>
+    <a href="Frontend_Index.html"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+    <a href="aboutproject.html" style="color: #0f19c6;"><i class="fas fa-info-circle"></i><span>About Project</span></a>
+    <a href="contactus.html"><i class="far fa-plus-square"></i><span>About Us</span></a>
+</div>
+
+
+<div class="content" style="height: 100vh; width:calc(100vw-20%);">
+  <div class="text-content">
+    <center><h1>About Project</h1></center>
+    <p text-align="justify">Most of the cities, towns and villages in India are not well designed to facilitate the suitable garbage collection methods. Common Public dustbins are filling over with the garbage and no one is concerned to clear them up as and when they get completely packed with overflowing garbage. Keeping in view of this big problem, it will be a good innovation to do something to deal with this unmanaged waste and from this.
+    </p>
+    
+    <p text-align="justify">
+    Our idea was to aware the municipal corporation about the garbage level of all the dustbins in that area continuously. The sensor attached to the dustbin will send the data to the admin panel with the help of cloud services and on the FrontEnd(i.e. on website), we will display the garbage level on that location with the help of google maps.
+    With this the municipal corporation can monitor the gabage level and can take required actions to make the city clean.
+    </p>
+    
+    <p text-align="justify">
+    <strong><b>ADVANTAGES</b></strong>
+    <br>
+    1. Through such kind of technical automation we can promote National level schemes like Swachh Bharat Abhiyan, Digital India etc. <br>2. This technique can also be implemented in any institute to keep its campus clean and healthy. <br>3. Customization of such kind of techniques in the campus can motivate the students to think about the latest innovation in technical domains. 
+    </p>
+    
+    <p text-align="justify">
+    <strong><b>FUTURE SCOPE</b></strong>
+    <br>
+    If we move further in this project then in future we can add one mechanical idea i.e. When the Wifi-Module send the data to the raspberry pi about the trash level above 70% then it will compress the trash with help of compressor.
+    When any object comes close to the sensing area, the lid will open automatically.
+    Cloud Platform/Raspberry Pi can be used for Data Storage and Data Analysis.
+    Daily Production of waste can be monitored.
+    </p>
+  </div>
+</div>
+<div class="footer">
+  <footer>&copy; Copyright 2020</footer>
+</div> 
+</body>
+</html>
+
+

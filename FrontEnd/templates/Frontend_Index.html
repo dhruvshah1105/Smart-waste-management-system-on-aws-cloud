@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ADMIN</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+      function initMap() {
+        const uluru = { lat: 22.6000822, lng: 72.820248 }; 
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 17,
+          center: uluru,
+        });
+        const Result='<p> {{  out  }}cm filled out of 300cm</p>';
+        const infowindow = new google.maps.InfoWindow({
+            content: Result,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+        marker.addListener("click",()=>{
+            infowindow.open(map, marker);
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header style="top:0">
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <center>
+        <img src="{{url_for('static', filename='logo.png')}}" class="profile_image" alt="">
+        <h4>Admin</h4>
+      </center>
+      <a href="Frontend_Index.html" style="color: #0f19c6;"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a href="aboutproject.html"><i class="fas fa-info-circle"></i><span>About Project</span></a>
+      <a href="contactus.html"><i class="far fa-plus-square"></i><span>About Us</span></a>
+      <!-- <p>{{ out }}</p><br> -->
+    </div>
+
+    <!--sidebar end-->
+    <div class="content">
+      <div id="map"></div>
+    </div>
+    
+    
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKq7RERv63ohJASCHa26bClB29VxIZFeg&callback=initMap"></script>
+
+  </body>
+</html>
